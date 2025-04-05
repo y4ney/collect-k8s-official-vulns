@@ -1,0 +1,47 @@
+# GitHub Actions 工作流：定期或手动更新 k8s-official-vulns 仓库
+name: Update k8s-official-vulns repo
+# 触发条件：
+# 每 6 小时触发一次（UTC 时间），也支持手动触发
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # 每 6 小时运行一次
+  workflow_dispatch: # 支持手动触发工作流
+
+jobs:
+  update:
+    # 作业名称：更新 k8s-official-vulns 数据
+    name: Update k8s-official-vulns
+    # 指定运行环境为 Ubuntu 24.04
+    runs-on: ubuntu-24.04
+    env:
+      # 设置环境变量
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 默认 GitHub token，系统自带，用于权限验证
+      REPOSITORY: "k8s-official-vulns" # 目标仓库名称
+    steps:
+      # 第一步：拉取当前工作仓库代码
+      - name: Check out code
+        uses: actions/checkout@v4
+      # 第二步：设置 Go 环境，读取 go.mod 中指定的版本
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      # 第三步：拉取目标仓库（k8s-official-vulns）代码到指定路径
+      - name: Check out k8s-official-vulns repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ORG_REPO_TOKEN }} # 使用组织级 Token，需要设置
+          repository: ${{ github.repository_owner }}/${{ env.REPOSITORY }} # 拼接成完整 repo 名称
+          path: ${{ env.REPOSITORY }} # 设置 clone 的目录
+      # 第四步：设置 git 提交所需的用户名和邮箱（用于自动提交）
+      - name: Setup github user email and name
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+      # 第五步：编译当前目录下的 Go 项目，生成名为 collect 的可执行文件
+      - name: Compile
+        run: go build -o collect-k8s-official-vulns
+      # 第六步：无论前面步骤是否失败，始终运行 update 脚本
+      - if: always()
+        name: Update
+        run: ./scripts/update.sh
