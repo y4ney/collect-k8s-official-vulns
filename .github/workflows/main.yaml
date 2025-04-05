@@ -31,7 +31,7 @@ jobs:
       - name: Check out k8s-official-vulns repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ORG_REPO_TOKEN }} # 使用组织级 Token，需要设置
+          token: ${{ secrets.GITHUB_TOKEN }} # 使用组织级 Token，需要设置
           repository: ${{ github.repository_owner }}/${{ env.REPOSITORY }} # 拼接成完整 repo 名称
           path: ${{ env.REPOSITORY }} # 设置 clone 的目录
       # 第四步：设置 git 提交所需的用户名和邮箱（用于自动提交）
