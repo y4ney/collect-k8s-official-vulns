@@ -8,6 +8,8 @@ export TZ='Asia/Shanghai'
 # 初始化返回结果变量
 result=0
 
+echo "Using API_KEY: ${API_KEY:0:4}****"  # 打印前几位调试用，注意避免泄露
+
 # 执行 collect-k8s-official-vulns 程序，参数说明：
 # -u：更新漏洞
 # -t：翻译漏洞

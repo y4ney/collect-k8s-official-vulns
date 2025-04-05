@@ -17,6 +17,7 @@ jobs:
       # 设置环境变量
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 默认 GitHub token，系统自带，用于权限验证
       REPOSITORY: "k8s-official-vulns" # 目标仓库名称
+      API_KEY: ${{ secrets.API_KEY }} # DeepSeek 的API Key
     steps:
       # 第一步：拉取当前工作仓库代码
       - name: Check out code
