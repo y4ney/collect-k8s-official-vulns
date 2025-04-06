@@ -64,7 +64,7 @@
     collect-k8s-official-vulns -t
     ```
    ![translate.png](images/translate.png)
-5. 🔄 更新漏洞，建议指定 -t 以翻译更新的内容
+5. 🔄 更新漏洞，建议指定 `-t` 以翻译更新的内容
     ```bash
     collect-k8s-official-vulns -u -t
     ```
