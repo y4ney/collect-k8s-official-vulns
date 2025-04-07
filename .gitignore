@@ -1,2 +1,2 @@
-./collect-k8s-official-vulns
-./.idea
+collect-k8s-official-vulns
+.idea
