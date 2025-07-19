@@ -1,3 +1,16 @@
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=zh-TW">繁體中文</a>
+      </div>
+    </div>
+  </details>
+</div>
+
 # 🌐 collect-k8s-official-vulns
 可爬取、更新并将 K8S 官方漏洞翻译（通过 DeepSeek）成简体中文，欢迎使用～ 😺
 ![banner.png](images/banner.png)
