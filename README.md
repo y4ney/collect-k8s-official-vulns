@@ -3,9 +3,9 @@
     <summary >🌐 Language</summary>
     <div>
       <div align="center">
-        <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=en">English</a>
-        | <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=zh-CN">简体中文</a>
-        | <a href="https://openaitx.github.io/view.html?user=pr0v3rbs&project=CVE-2025-32463_chwoot&lang=zh-TW">繁體中文</a>
+        <a href="https://openaitx.github.io/view.html?user=y4ney&project=collect-k8s-official-vulns&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=y4ney&project=collect-k8s-official-vulns&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=y4ney&project=collect-k8s-official-vulns&lang=zh-TW">繁體中文</a>
       </div>
     </div>
   </details>
